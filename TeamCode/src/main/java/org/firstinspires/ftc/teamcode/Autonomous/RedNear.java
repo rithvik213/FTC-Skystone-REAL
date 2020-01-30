@@ -11,14 +11,17 @@ public class RedNear extends LinearOpMode {
     int pattern  = 0;
 
     public void runOpMode() throws InterruptedException {
+        //INITIALIZE the robot
+
         robot = new HardwareBot(this);
-        timer = new ElapsedTime();
-        robot.camera.setAllianceColor("red");
+        timer = new ElapsedTime(); // sets up the timer to track seconds
+        robot.camera.setAllianceColor("red"); // gets the
 
 
         waitForStart();
 
         timer.reset();
+        // prints the pattern and timer to the driver station
         while (timer.seconds() <= 2 && !isStopRequested()) {
             telemetry.addData("Pattern: ",robot.camera.getPattern());
             pattern = robot.camera.getPattern();
@@ -27,7 +30,7 @@ public class RedNear extends LinearOpMode {
         }
 
         switch (pattern) {
-            case 1:
+            case 1: //when SKYSTONE is CLOSEST to the WALL
                 //test
                 robot.accessories.readyToGrabOrUnlatch();
                 robot.drive.turnIMUOneSide(10,0.3,false);
@@ -74,7 +77,7 @@ public class RedNear extends LinearOpMode {
                  */
                 break;
 
-            case 2:
+            case 2: //when SKYSTONE is in the MIDDLE
                 robot.accessories.readyToGrabOrUnlatch();
                 robot.drive.turnIMUOneSide(37,0.3,false); //prev 43
                 robot.drive.moveDistance(33,0.4,true); //prev 20
@@ -154,30 +157,38 @@ public class RedNear extends LinearOpMode {
                  */
                 break;
 
-            case 3:
+            case 3://when SKYSTONE is the FARTHEST away from the WALL
+
+                //grabs the SKYSTONE closest to the wall (out of the two in the pattern)
                 robot.accessories.readyToGrabOrUnlatch();
                 robot.drive.turnIMUOneSide(24,0.4,false);
                 robot.drive.moveDistance(18,0.4,true);
                 robot.drive.turnIMUOneSide(24,0.4,true);
                 robot.drive.moveDistance(2,0.4,true);
-                robot.accessories.Grab();
+                robot.accessories.Grab();           //sets power to auto-servo
+                sleep(700);            //waits for servo to make contact before next code
+
+                /*one tile on the field is equal to 20 units of distance (measuring form front of robot)*/
+
+                robot.drive.moveDistance(17,0.4, false);        //moves back
+                robot.drive.turnIMU(90,0.4,true);                 //turns toward the skybride
+                robot.drive.moveDistance(66,0.4,true);          //moves under bridge to other side
+                robot.accessories.readyToGrabOrUnlatch(); // releases the SKYSTONE
                 sleep(700);
-                robot.drive.moveDistance(17,0.4, false);
-                robot.drive.turnIMU(90,0.4,true);
-                robot.drive.moveDistance(66,0.4,true);
-                robot.accessories.readyToGrabOrUnlatch();
-                sleep(700);
-                robot.drive.moveDistance(53,0.4,false);
-                robot.drive.turnIMUOneSide(91,0.4,false);
+
+                robot.drive.moveDistance(53,0.4,false);     //moves back to grap other stone
+                robot.drive.turnIMUOneSide(91,0.4,false);     // turns to grab the stone closest to bridge
                 robot.drive.moveDistance(7,0.4,true);
-                robot.accessories.Grab();
+                robot.accessories.Grab();                                           //Grabs second SKYSTONE
                 sleep(700);
+
                 robot.drive.moveDistance(13,0.4,false);
                 robot.drive.turnIMU(87,0.4,true);
                 robot.drive.moveDistance(48,0.4,true);
-                robot.accessories.readyToGrabOrUnlatch();
+                robot.accessories.readyToGrabOrUnlatch(); // releases 2nd SKYSTONE
                 sleep(700);
-                robot.drive.moveDistance(9,0.4,false);
+
+                robot.drive.moveDistance(9,0.4,false); // parks under the bridge closest to center
 
                 /*robot.drive.moveDistance(4,0.4,true);
                 robot.drive.turnIMU(17,0.3,true);

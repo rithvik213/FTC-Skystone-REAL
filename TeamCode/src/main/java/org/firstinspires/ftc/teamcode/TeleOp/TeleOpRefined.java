@@ -113,10 +113,10 @@ public class TeleOpRefined extends LinearOpMode {
             }
 
             if(gamepad1.y || gamepad2.y) {
-                autoClutch.setPosition(1);
+                autoClutch.setPosition(1);//closes the autoClutch
             }
             if(gamepad1.x || gamepad2.x) {
-                autoClutch.setPosition(0.4);
+                autoClutch.setPosition(0.4);//opens autoClutch
             }
 /*
             if(gamepad1.dpad_up|| gamepad2.b){
@@ -132,6 +132,7 @@ public class TeleOpRefined extends LinearOpMode {
                 foundRight.setPosition(0);
             }
 */
+            //testing code for all motors and servos that MAYBE should be be TAKEN OUT
             if(gamepad1.back||gamepad2.back){
 
                 autoClutch.setPosition(0.4);
@@ -152,8 +153,6 @@ public class TeleOpRefined extends LinearOpMode {
                 //slides.setPower(0);
 
             }
-
-
 
         }
     }

@@ -126,7 +126,8 @@ public class Drive {
 
 
     }
-
+    /*if the direction is true then it moves forward
+    * esle it moves backward */
     public void moveDistance(double distance, double power, boolean direction) {
         //resetEncoders();
         //runUsingEncoders();
