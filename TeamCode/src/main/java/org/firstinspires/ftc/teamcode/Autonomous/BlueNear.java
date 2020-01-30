@@ -28,18 +28,45 @@ public class BlueNear extends LinearOpMode {
         switch (pattern) {
             case 1:
                 robot.accessories.readyToGrabOrUnlatch();
-                robot.drive.turnIMUOneSide(12,0.3,true);
-                robot.drive.moveDistance(21,0.4,true);
+                robot.drive.turnIMUOneSide(10,0.3,true);
+                robot.drive.moveDistance(24,0.4,true);
                 sleep(700);
-                robot.drive.turnIMUOneSide(12,0.3,false);
+                robot.drive.turnIMUOneSide(10,0.3,false);
                 robot.accessories.Grab();
                 sleep(700);
-                robot.drive.moveDistance(13,0.4, false);
-                robot.drive.turnIMU(82,0.4,false); // initially false before 85
-                robot.drive.moveDistance(58,0.4,true);  // initially true
+                robot.drive.moveDistance(12,0.4, false);
+                robot.drive.turnIMU(90,0.4,false); // initially false before 85
+                robot.drive.moveDistance(61,0.4,true);  // initially true
                 robot.accessories.readyToGrabOrUnlatch();
                 sleep(700);
-                robot.drive.moveDistance(8,0.4,false);
+                robot.drive.moveDistance(10,0.4,false);
+                robot.drive.moveDistance(54,0.4,false);
+                robot.drive.turnIMUOneSide(90,0.3,true);
+                robot.drive.moveDistance(4,0.4,true);
+                robot.accessories.Grab();
+                sleep(700);
+                robot.drive.moveDistance(14,0.4,false);
+                robot.drive.turnIMU(88,0.4,false);
+                robot.drive.moveDistance(48,0.4,true);
+                robot.accessories.readyToGrabOrUnlatch();
+                sleep(700);
+                robot.drive.moveDistance(6,0.4,false);
+
+//                robot.accessories.readyToGrabOrUnlatch();
+//                robot.drive.turnIMUOneSide(12,0.3,true);
+//                robot.drive.moveDistance(21,0.4,true);
+//                sleep(700);
+//                robot.drive.turnIMUOneSide(12,0.3,false);
+//                robot.accessories.Grab();
+//                sleep(700);
+//                robot.drive.moveDistance(13,0.4, false);
+//                robot.drive.turnIMU(82,0.4,false); // initially false before 85
+//                robot.drive.moveDistance(58,0.4,true);  // initially true
+//                robot.accessories.readyToGrabOrUnlatch();
+//                sleep(700);
+//                robot.drive.moveDistance(8,0.4,false);
+
+
 
 
                 //robot.drive.turnIMUOneSide(40,0.3,true);

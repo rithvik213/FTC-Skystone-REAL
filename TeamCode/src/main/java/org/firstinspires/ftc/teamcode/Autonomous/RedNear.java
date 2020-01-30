@@ -76,31 +76,50 @@ public class RedNear extends LinearOpMode {
 
             case 2:
                 robot.accessories.readyToGrabOrUnlatch();
-                robot.drive.turnIMUOneSide(43,0.3,false); //prev 37
-                robot.drive.moveDistance(20,0.4,true);
+                robot.drive.turnIMUOneSide(37,0.3,false); //prev 43
+                robot.drive.moveDistance(33,0.4,true); //prev 20
                 sleep(500);
-                robot.drive.turnIMUOneSide(45,0.3,true);
                 robot.accessories.Grab();
                 sleep(700);
-                robot.drive.moveDistance(30,0.4, false);
-                //PREVIOUS PIVOT TURN
-                //robot.drive.Auto2ndTurnRed(90,0.3);
-                robot.drive.turnIMUOneSide(100,0.3,true);
-                //robot.drive.turnIMUThreeWheel(90,0.3,true);
-                robot.drive.moveDistance(10,0.4,true); //72 with pivot
+                robot.drive.moveDistance(18,0.4,false);
+                robot.drive.turnIMU((90 + 34),0.4,true);
+                robot.drive.moveDistance(68,0.4,true);
                 robot.accessories.readyToGrabOrUnlatch();
                 sleep(700);
-                robot.drive.moveDistance(63,0.4,false);
-                robot.drive.turnIMUOneSide(89,0.4,false);
-                robot.drive.moveDistance(9,0.4,true);
+                robot.drive.moveDistance(64,0.4,false);
+                robot.drive.turnIMUOneSide(90,0.4,false);
+                robot.drive.moveDistance(7,0.4,true);
                 robot.accessories.Grab();
                 sleep(700);
-                robot.drive.moveDistance(16,0.4,false);
-                robot.drive.turnIMU(84,0.4,true);
-                robot.drive.moveDistance(52,0.4,true);
+                robot.drive.moveDistance(14,0.4,false);
+                robot.drive.turnIMU(86,0.4,true);
+                robot.drive.moveDistance(56,0.4,true);
                 robot.accessories.readyToGrabOrUnlatch();
                 sleep(700);
-                robot.drive.moveDistance(10,0.4,false);
+                robot.drive.moveDistance(9,0.4,false);
+//
+//                robot.drive.turnIMUOneSide(45,0.3,true);
+//                robot.accessories.Grab();
+//                sleep(700);
+//                robot.drive.moveDistance(30,0.4, false);
+//                //PREVIOUS PIVOT TURN
+//                //robot.drive.Auto2ndTurnRed(90,0.3);
+//                robot.drive.turnIMUOneSide(100,0.3,true);
+//                //robot.drive.turnIMUThreeWheel(90,0.3,true);
+//                robot.drive.moveDistance(10,0.4,true); //72 with pivot
+//                robot.accessories.readyToGrabOrUnlatch();
+//                sleep(700);
+//                robot.drive.moveDistance(63,0.4,false);
+//                robot.drive.turnIMUOneSide(89,0.4,false);
+//                robot.drive.moveDistance(9,0.4,true);
+//                robot.accessories.Grab();
+//                sleep(700);
+//                robot.drive.moveDistance(16,0.4,false);
+//                robot.drive.turnIMU(84,0.4,true);
+//                robot.drive.moveDistance(52,0.4,true);
+//                robot.accessories.readyToGrabOrUnlatch();
+//                sleep(700);
+//                robot.drive.moveDistance(10,0.4,false);
 
 
                 /*robot.drive.moveDistance(30,0.4,true);
