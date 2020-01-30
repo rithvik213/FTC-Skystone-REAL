@@ -1,4 +1,5 @@
-package org.firstinspires.ftc.teamcode.TeleOp;
+package org.firstinspires.ftc.teamcode.TeleOp.OldVersion;
+
 //Importing the hardware classes used in program
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -72,9 +73,8 @@ public class TeleOpRefined extends LinearOpMode {
         while (!isStopRequested()) {
 
             drive = -gamepad1.left_stick_y - (gamepad2.left_stick_y/2);
-            turn = gamepad1.right_stick_x + (gamepad2.right_stick_x/2) + (gamepad1.left_stick_x/4);
+            turn = gamepad1.right_stick_x + (gamepad2.right_stick_x/2) + (gamepad1.left_stick_x/3);
 
-            //drive = Range.clip(drive, -0.8, 0.8);
             left = drive - turn;
             right = drive + turn;
 
@@ -105,10 +105,10 @@ public class TeleOpRefined extends LinearOpMode {
             rightFront.setPower(right);
             rightBack.setPower(right);
 
-            if(gamepad1.right_bumper || gamepad2.dpad_up) {
+            if(gamepad1.right_bumper || gamepad2.right_bumper) {
                 clutch.setPosition(0.2); // position clutch to collect stone
             }
-            else if(gamepad1.left_bumper || gamepad2.dpad_down) {
+            else if(gamepad1.left_bumper || gamepad2.left_bumper) {
                 clutch.setPosition(0.7);// position clutch to deliver stone
             }
 
@@ -118,43 +118,34 @@ public class TeleOpRefined extends LinearOpMode {
             if(gamepad1.x || gamepad2.x) {
                 autoClutch.setPosition(0.4);
             }
-/*
-            if(gamepad1.dpad_up|| gamepad2.b){
-                foundLeft.setPosition(0.4);
-                foundRight.setPosition(0.6);
+
+            //brings both clutches up
+           if(gamepad1.dpad_up|| gamepad2.dpad_up){
+              foundLeft.setPosition(0.15);
+              foundRight.setPosition(1);
             }
-            if (gamepad1.dpad_down|| gamepad2.a){
-                foundLeft.setPosition(0.7);
-                foundRight.setPosition(0.3);
+           if(gamepad2.dpad_left)
+               foundRight.setPosition(0.6);
+
+           if(gamepad2.dpad_right)
+               foundLeft.setPosition(0.4);
+
+           //brings both clutches down
+          if (gamepad1.dpad_down|| gamepad2.dpad_down){
+              foundLeft.setPosition(0.2);
+              foundRight.setPosition(0.5);
             }
-            if(gamepad1.dpad_right|| gamepad2.right_bumper){
-                foundLeft.setPosition(1);
-                foundRight.setPosition(0);
-            }
-*/
-            if(gamepad1.back||gamepad2.back){
+          if(gamepad1.dpad_right||gamepad2.dpad_right){
+              foundLeft.setPosition(1);
+              foundRight.setPosition(0.3);
+          }
 
-                autoClutch.setPosition(0.4);
-                sleep(100);
-                clutch.setPosition(0.2);
-                sleep(1400);
-                autoClutch.setPosition(1);
-                sleep(100);
-                clutch.setPosition(0.7);
+          if(gamepad2.a) {
+              foundLeft.setPosition(0.2);
+          }
+          if(gamepad2.b) {
 
-                //slides.setPower(0.1)
-                //foundLeft.setPosition(0.5);
-                //foundRight.setPosition(0.6);
-
-                //foundLeft.setPosition(0);
-                //foundRight.setPosition(1);
-                //slides.setPower(-0.1);
-                //slides.setPower(0);
-
-            }
-
-
-
+          }
         }
     }
 }
