@@ -47,10 +47,10 @@ public class RedNear extends LinearOpMode {
                 robot.drive.moveDistance(10,0.4,false);
                 robot.drive.moveDistance(46,0.4,false);
                 robot.drive.turnIMUOneSide(90,0.3,false);
-                robot.drive.moveDistance(4,0.4,true);
+                robot.drive.moveDistance(6,0.4,true);
                 robot.accessories.Grab();
                 sleep(700);
-                robot.drive.moveDistance(10,0.4,false);
+                robot.drive.moveDistance(12,0.4,false);
                 robot.drive.turnIMU(88,0.4,true);
                 robot.drive.moveDistance(48,0.4,true);
                 robot.accessories.readyToGrabOrUnlatch();
