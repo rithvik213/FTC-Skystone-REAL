@@ -55,7 +55,7 @@ public class RedNear extends LinearOpMode {
                 robot.drive.moveDistance(48,0.4,true);
                 robot.accessories.readyToGrabOrUnlatch();
                 sleep(700);
-                robot.drive.moveDistance(6,0.4,false);
+                robot.drive.moveDistance(9,0.4,false);
 
                 //robot.drive.moveDistance(4,0.4,true);
                 //robot.drive.turnIMU(14,0.3,false);
@@ -85,18 +85,18 @@ public class RedNear extends LinearOpMode {
                 robot.accessories.Grab();
                 sleep(700);
                 robot.drive.moveDistance(18,0.4,false);
-                robot.drive.turnIMU((90 + 34),0.4,true);
+                robot.drive.turnIMU((90 + 32),0.4,true);
                 robot.drive.moveDistance(68,0.4,true);
                 robot.accessories.readyToGrabOrUnlatch();
                 sleep(700);
-                robot.drive.moveDistance(64,0.4,false);
+                robot.drive.moveDistance(68,0.4,false);
                 robot.drive.turnIMUOneSide(90,0.4,false);
                 robot.drive.moveDistance(7,0.4,true);
                 robot.accessories.Grab();
                 sleep(700);
                 robot.drive.moveDistance(14,0.4,false);
                 robot.drive.turnIMU(86,0.4,true);
-                robot.drive.moveDistance(56,0.4,true);
+                robot.drive.moveDistance(60,0.4,true);
                 robot.accessories.readyToGrabOrUnlatch();
                 sleep(700);
                 robot.drive.moveDistance(9,0.4,false);
@@ -176,19 +176,19 @@ public class RedNear extends LinearOpMode {
                 robot.accessories.readyToGrabOrUnlatch(); // releases the SKYSTONE
                 sleep(700);
 
-                robot.drive.moveDistance(53,0.4,false);     //moves back to grap other stone
+                robot.drive.moveDistance(56,0.4,false);     //moves back to grap other stone
                 robot.drive.turnIMUOneSide(91,0.4,false);     // turns to grab the stone closest to bridge
                 robot.drive.moveDistance(7,0.4,true);
                 robot.accessories.Grab();                                           //Grabs second SKYSTONE
                 sleep(700);
 
-                robot.drive.moveDistance(13,0.4,false);
+                robot.drive.moveDistance(15,0.4,false);
                 robot.drive.turnIMU(87,0.4,true);
                 robot.drive.moveDistance(48,0.4,true);
                 robot.accessories.readyToGrabOrUnlatch(); // releases 2nd SKYSTONE
                 sleep(700);
 
-                robot.drive.moveDistance(9,0.4,false); // parks under the bridge closest to center
+                robot.drive.moveDistance(11,0.4,false); // parks under the bridge closest to center
 
                 /*robot.drive.moveDistance(4,0.4,true);
                 robot.drive.turnIMU(17,0.3,true);

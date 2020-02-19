@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.TeleOp.OldVersion;
 
 //Importing the hardware classes used in program
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -13,6 +14,7 @@ import org.firstinspires.ftc.robotcore.internal.system.Deadline;
 import java.util.concurrent.TimeUnit;
 
 @TeleOp
+@Disabled
 public class TeleOpRefined extends LinearOpMode {
 
     //HardwareBot robot;

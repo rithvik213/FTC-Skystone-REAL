@@ -15,6 +15,8 @@ public class BlueNear extends LinearOpMode {
         timer = new ElapsedTime();
         robot.camera.setAllianceColor("blue");
 
+        waitForStart();
+
         timer.reset();
         while (timer.seconds() <= 2 && !isStopRequested()) {
             telemetry.addData("Pattern: ",robot.camera.getPattern());
@@ -22,8 +24,6 @@ public class BlueNear extends LinearOpMode {
             telemetry.addData("Timer: ", timer.seconds());
             telemetry.update();
         }
-
-        waitForStart();
 
         switch (pattern) {
             case 1:
@@ -40,12 +40,12 @@ public class BlueNear extends LinearOpMode {
                 robot.accessories.readyToGrabOrUnlatch();
                 sleep(700);
                 robot.drive.moveDistance(10,0.4,false);
-                robot.drive.moveDistance(54,0.4,false);
+                robot.drive.moveDistance(52,0.4,false);
                 robot.drive.turnIMUOneSide(90,0.3,true);
                 robot.drive.moveDistance(4,0.4,true);
                 robot.accessories.Grab();
                 sleep(700);
-                robot.drive.moveDistance(12,0.4,false);
+                robot.drive.moveDistance(20,0.4,false);
                 robot.drive.turnIMU(88,0.4,false);
                 robot.drive.moveDistance(48,0.4,true);
                 robot.accessories.readyToGrabOrUnlatch();
@@ -80,17 +80,17 @@ public class BlueNear extends LinearOpMode {
                 sleep(500);
                 robot.accessories.Grab();
                 sleep(700);
-                robot.drive.moveDistance(29,0.4,false);
+                robot.drive.moveDistance(28,0.4,false);
                 robot.drive.turnIMU((90 + 24),0.4,false);
                 robot.drive.moveDistance(62,0.4,true);
                 robot.accessories.readyToGrabOrUnlatch();
                 sleep(700);
-                robot.drive.moveDistance(70,0.5,false);
+                robot.drive.moveDistance(66,0.5,false);
                 robot.drive.turnIMUOneSide(90,0.4,true);
                 robot.drive.moveDistance(7,0.4,true);
                 robot.accessories.Grab();
                 sleep(700);
-                robot.drive.moveDistance(20,0.4,false);
+                robot.drive.moveDistance(18,0.4,false);
                 robot.drive.turnIMU(82,0.4,false);
                 robot.drive.moveDistance(54,0.4,true);
                 robot.accessories.readyToGrabOrUnlatch();
@@ -168,8 +168,8 @@ public class BlueNear extends LinearOpMode {
                 /*one tile on the field is equal to 20 units of distance (measuring form front of robot)*/
 
                 robot.drive.moveDistance(19,0.4, false);        //moves back
-                robot.drive.turnIMU(84,0.5,false);                 //turns toward the skybride
-                robot.drive.moveDistance(66,0.4,true);          //moves under bridge to other side
+                robot.drive.turnIMU(86,0.5,false);                 //turns toward the skybride
+                robot.drive.moveDistance(68,0.4,true);          //moves under bridge to other side
                 robot.accessories.readyToGrabOrUnlatch(); // releases the SKYSTONE
                 sleep(700);
 
@@ -180,7 +180,7 @@ public class BlueNear extends LinearOpMode {
                 sleep(700);
 
                 robot.drive.moveDistance(17,0.4,false);     //moves back and turns
-                robot.drive.turnIMU(83,0.4,false);
+                robot.drive.turnIMU(85,0.4,false);
                 robot.drive.moveDistance(46,0.4,true);
                 robot.accessories.readyToGrabOrUnlatch(); // releases 2nd SKYSTONE
                 sleep(700);

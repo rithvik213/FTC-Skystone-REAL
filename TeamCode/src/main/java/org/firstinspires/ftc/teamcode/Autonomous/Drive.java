@@ -16,6 +16,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
+import static java.lang.Thread.sleep;
+
 @Disabled
 public class Drive {
 
@@ -66,17 +68,17 @@ public class Drive {
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
 
         rightFront.setDirection(DcMotorSimple.Direction.FORWARD);
-        rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
+        rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
 
         leftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         leftBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         getIMUReady();
-        leftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        leftBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        leftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER); // changed this
+        leftBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);  // changed this
+        rightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER); // changed this
+        rightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER); // changed this
 
         rangeSensor = opMode.hardwareMap.get(ModernRoboticsI2cRangeSensor.class, "rangeL");
         rangeSensor2 = opMode.hardwareMap.get(ModernRoboticsI2cRangeSensor.class, "rangeR");
@@ -141,6 +143,10 @@ public class Drive {
                 }
             }*/
         goStraight(0);
+    }
+
+    public void straightMove() {
+
     }
 
         public void orientationCorrect() {

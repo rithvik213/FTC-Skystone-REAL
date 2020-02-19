@@ -50,7 +50,7 @@ public class TeleOpRefined extends LinearOpMode {
         rightFront.setDirection(DcMotor.Direction.REVERSE);
         leftBack = hardwareMap.get(DcMotor.class, "lb");
         rightBack = hardwareMap.get(DcMotor.class, "rb");
-        rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
 
         /*Initializing the motor for the slides*/
         slides = hardwareMap.dcMotor.get("slides");
@@ -72,7 +72,7 @@ public class TeleOpRefined extends LinearOpMode {
         while (!isStopRequested()) {
 
             drive = -gamepad1.left_stick_y - (gamepad2.left_stick_y/2);
-            turn = gamepad1.right_stick_x + (gamepad2.right_stick_x/2) + (gamepad1.left_stick_x/4);
+            turn = gamepad1.right_stick_x + (gamepad2.right_stick_x/2);
 
             //drive = Range.clip(drive, -0.8, 0.8);
             left = drive - turn;
@@ -105,35 +105,35 @@ public class TeleOpRefined extends LinearOpMode {
             rightFront.setPower(right);
             rightBack.setPower(right);
 
-            if(gamepad1.right_bumper || gamepad2.dpad_up) {
+            if(gamepad1.right_bumper || gamepad2.right_bumper) {
                 clutch.setPosition(0.2); // position clutch to collect stone
             }
-            else if(gamepad1.left_bumper || gamepad2.dpad_down) {
+            else if(gamepad1.left_bumper || gamepad2.left_bumper) {
                 clutch.setPosition(0.7);// position clutch to deliver stone
             }
 
-            if(gamepad1.y || gamepad2.y) {
+            if(gamepad1.a || gamepad2.a) {
                 autoClutch.setPosition(1);//closes the autoClutch
             }
-            if(gamepad1.x || gamepad2.x) {
+            if(gamepad1.y || gamepad2.y) {
                 autoClutch.setPosition(0.4);//opens autoClutch
             }
-/*
-            if(gamepad1.dpad_up|| gamepad2.b){
+
+            if(gamepad1.dpad_up|| gamepad2.dpad_up){
                 foundLeft.setPosition(0.4);
-                foundRight.setPosition(0.6);
+                foundRight.setPosition(0.7);
             }
-            if (gamepad1.dpad_down|| gamepad2.a){
+            if (gamepad1.dpad_down|| gamepad2.dpad_down){
                 foundLeft.setPosition(0.7);
                 foundRight.setPosition(0.3);
             }
-            if(gamepad1.dpad_right|| gamepad2.right_bumper){
+            if(gamepad1.dpad_right|| gamepad2.dpad_right){
                 foundLeft.setPosition(1);
                 foundRight.setPosition(0);
             }
-*/
+
             //testing code for all motors and servos that MAYBE should be be TAKEN OUT
-            if(gamepad1.back||gamepad2.back){
+         /*   if(gamepad1.back||gamepad2.back){
 
                 autoClutch.setPosition(0.4);
                 sleep(100);
@@ -153,7 +153,7 @@ public class TeleOpRefined extends LinearOpMode {
                 //slides.setPower(0);
 
             }
-
+*/
         }
     }
 }
