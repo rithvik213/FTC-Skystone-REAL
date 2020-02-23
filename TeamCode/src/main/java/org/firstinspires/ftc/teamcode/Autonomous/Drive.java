@@ -454,7 +454,7 @@ public class Drive {
 
             double power = Range.clip((Math.abs(error)/125) + i,.3,.7);
 
-            if(error < 0)
+            if(error > 0)
                 power = -power;
 
             opMode.telemetry.addData("Current Position: ", currentPos);
