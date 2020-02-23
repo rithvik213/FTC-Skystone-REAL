@@ -40,10 +40,10 @@ public class turnTest2 extends LinearOpMode {
         rightFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         getIMUReady();
-        leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER); // changed this
-        leftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);  // changed this
-        rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER); // changed this
-        rightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER); // changed this
+//        leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER); // changed this
+//        leftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);  // changed this
+//        rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER); // changed this
+//        rightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER); // changed this
 
         waitForStart();
 

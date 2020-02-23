@@ -90,7 +90,7 @@ public class RedNear extends LinearOpMode {
                 //grabs the SKYSTONE closest to the wall (out of the two in the pattern)
                 robot.accessories.readyToGrabOrUnlatch();
                 robot.drive.moveDistance(4,0.4,true);
-                robot.drive.turnIMU(24,0.4,false);
+                robot.drive.turnIMU(25,0.4,false);
                 robot.drive.moveDistance(20,0.4,true);
                 robot.drive.turnIMU(25,0.4,true);
                 robot.drive.moveDistance(2,0.4,true);
