@@ -90,9 +90,9 @@ public class RedNear extends LinearOpMode {
                 //grabs the SKYSTONE closest to the wall (out of the two in the pattern)
                 robot.accessories.readyToGrabOrUnlatch();
                 robot.drive.moveDistance(4,0.4,true);
-                robot.drive.turnIMU(25,0.4,false);
+                robot.drive.turnIMUTest(25,0.4,false);
                 robot.drive.moveDistance(20,0.4,true);
-                robot.drive.turnIMU(25,0.4,true);
+                robot.drive.turnIMUTest(25,0.4,true);
                 robot.drive.moveDistance(2,0.4,true);
                 robot.accessories.Grab();           //sets power to auto-servo
                 sleep(700);            //waits for servo to make contact before next code
@@ -100,19 +100,19 @@ public class RedNear extends LinearOpMode {
                 /*one tile on the field is equal to 20 units of distance (measuring form front of robot)*/
 
                 robot.drive.moveDistance(17,0.4, false);        //moves back
-                robot.drive.turnIMU(89,0.4,true);                 //turns toward the skybride
+                robot.drive.turnIMUTest(89,0.4,true);                 //turns toward the skybride
                 robot.drive.moveDistance(66,0.4,true);          //moves under bridge to other side
                 robot.accessories.readyToGrabOrUnlatch(); // releases the SKYSTONE
                 sleep(700);
 
                 robot.drive.moveDistance(42,0.4,false);     //moves back to grap other stone
-                robot.drive.turnIMU(91,0.4,false);     // turns to grab the stone closest to bridge
+                robot.drive.turnIMUTest(91,0.4,false);     // turns to grab the stone closest to bridge
                 robot.drive.moveDistance(13,0.4,true);
                 robot.accessories.Grab();                                           //Grabs second SKYSTONE
                 sleep(700);
 
                 robot.drive.moveDistance(14,0.4,false);
-                robot.drive.turnIMU(87,0.4,true);
+                robot.drive.turnIMUTest(87,0.4,true);
                 robot.drive.moveDistance(45,0.4,true);
                 robot.accessories.readyToGrabOrUnlatch(); // releases 2nd SKYSTONE
                 sleep(700);

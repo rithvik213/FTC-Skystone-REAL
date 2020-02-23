@@ -454,25 +454,24 @@ public class Drive {
 
             double power = Range.clip((Math.abs(error)/125) + i,.3,.7);
 
-            if(error > 0)
+            if (error < 0) {
                 power = -power;
+            }
+            else {
+                power = +power;
+            }
 
             opMode.telemetry.addData("Current Position: ", currentPos);
             opMode.telemetry.addData("Distance to go: ", error);
+            opMode.telemetry.addData("Target: ", (int) target);
             opMode.telemetry.addData("Power: ", power);
             opMode.telemetry.update();
 
-            if(direction) {
-                leftFront.setPower(power);
-                leftBack.setPower(power);
-                rightFront.setPower(-power);
-                rightBack.setPower(-power);
-            } else {
-                leftFront.setPower(-power);
-                leftBack.setPower(-power);
-                rightFront.setPower(power);
-                rightBack.setPower(power);
-            }
+            leftFront.setPower(power);
+            leftBack.setPower(power);
+            rightFront.setPower(-power);
+            rightBack.setPower(-power);
+
             deltaTime = opMode.getRuntime() - initTime;
             initTime = opMode.getRuntime();
 
