@@ -68,7 +68,7 @@ public class Drive {
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
 
         rightFront.setDirection(DcMotorSimple.Direction.FORWARD);
-        rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
 
         leftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         leftBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -334,7 +334,7 @@ public class Drive {
             angles   = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
             currentPos = Math.abs(angles.firstAngle);
 
-            double power = Range.clip((Math.abs((currentPos - target) / (100.0)) + i), .3, .7);
+            double power = Range.clip((Math.abs((currentPos - target) / (125.0)) + i), .3, .7);
 
             opMode.telemetry.addData("Current Position: ", currentPos);
             opMode.telemetry.update();
@@ -356,7 +356,7 @@ public class Drive {
             deltaTime = opMode.getRuntime() - initTime;
 
             if (Math.abs(currentPos - target) < 30)
-                i += .01 * Math.abs(currentPos - target) * deltaTime;
+                i += .025 * Math.abs(currentPos - target) * deltaTime;
 
             if (i > 0.3) {
                 i = 0.3;
@@ -367,6 +367,64 @@ public class Drive {
         rightFront.setPower(0);
         rightBack.setPower(0);
     }
+
+    public void turnIMU2(double angle, double speed, boolean direction) {
+        angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+
+        double startTime = opMode.getRuntime();
+        double deltaAngle = 0, initTime = 0, deltaTime = 0;
+        double i = 0;
+        double error = 100; //used to start while loop
+        double KP = 0.3;
+        double KD = 0;
+        double previous_error = 0;
+
+        double initialPos = angles.firstAngle;
+        double currentPos = initialPos;
+        double target = 0;
+
+        if (direction) {
+            target = initialPos - angle;
+        }
+        else {
+            target = angle + initialPos;
+        }
+
+        while(opMode.opModeIsActive() && Math.abs(error) > 1) {
+            angles   = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+            currentPos = angles.firstAngle;
+            error = currentPos - target;
+
+            double power = Range.clip((KP * error + KD * (error - previous_error) / deltaTime), .3, .7);
+
+            opMode.telemetry.addData("Current Position: ", currentPos);
+            opMode.telemetry.update();
+            opMode.telemetry.addData("Distance to go: ", (Math.abs(target - Math.abs(currentPos))));
+            opMode.telemetry.update();
+
+            if(direction) {
+                leftFront.setPower(power);
+                leftBack.setPower(power);
+                rightFront.setPower(-power);
+                rightBack.setPower(-power);
+            } else {
+                leftFront.setPower(-power);
+                leftBack.setPower(-power);
+                rightFront.setPower(power);
+                rightBack.setPower(power);
+            }
+            deltaTime = opMode.getRuntime() - initTime;
+            initTime = opMode.getRuntime();
+
+            previous_error = error;
+
+        }
+        leftFront.setPower(0);
+        leftBack.setPower(0);
+        rightFront.setPower(0);
+        rightBack.setPower(0);
+    }
+
 
     public void turnIMUThreeWheel(double angle, double speed, boolean direction) {
         angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);

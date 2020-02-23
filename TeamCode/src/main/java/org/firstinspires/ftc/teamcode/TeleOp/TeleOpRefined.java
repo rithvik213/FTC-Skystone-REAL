@@ -50,7 +50,7 @@ public class TeleOpRefined extends LinearOpMode {
         rightFront.setDirection(DcMotor.Direction.REVERSE);
         leftBack = hardwareMap.get(DcMotor.class, "lb");
         rightBack = hardwareMap.get(DcMotor.class, "rb");
-        rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
+        rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
 
         /*Initializing the motor for the slides*/
         slides = hardwareMap.dcMotor.get("slides");
