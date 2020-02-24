@@ -91,7 +91,7 @@ public class RedNear extends LinearOpMode {
                 robot.accessories.readyToGrabOrUnlatch();
                 robot.drive.moveDistance(4,0.4,true);
                 robot.drive.turnIMUTest(25,0.4,false);
-                robot.drive.moveDistance(20,0.4,true);
+                robot.drive.moveDistance(24,0.4,true);
                 robot.drive.turnIMUTest(25,0.4,true);
                 robot.drive.moveDistance(2,0.4,true);
                 robot.accessories.Grab();           //sets power to auto-servo

@@ -452,7 +452,7 @@ public class Drive {
             currentPos = angles.firstAngle;
             error = currentPos - target;
 
-            double power = Range.clip((Math.abs(error)/125) + i,.3,.7);
+            double power = Range.clip((Math.abs(error)/125),.3,.7); //double power = Range.clip((Math.abs(error)/125) + i,.3,.7);
 
             if (error < 0) {
                 power = -power;
@@ -477,12 +477,12 @@ public class Drive {
 
             previous_error = error;
 
-            if (Math.abs(error) < 30)
+            /*if (Math.abs(error) < 30)
                 i += .025 * Math.abs(currentPos - target) * deltaTime;
 
             if (i > 0.3) {
                 i = 0.3;
-            }
+            }*/
 
         }
         leftFront.setPower(0);

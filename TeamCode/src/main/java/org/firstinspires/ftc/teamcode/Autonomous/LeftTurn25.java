@@ -10,8 +10,9 @@ public class LeftTurn25 extends LinearOpMode {
 
         waitForStart();
 
-        robot.drive.turnIMU(25,0.4,false);
+        robot.drive.turnIMUTest(25,0.4,false);
         sleep(800);
+        robot.drive.turnIMUTest(25,0.4,true);
 
     }
 }
